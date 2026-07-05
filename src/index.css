@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-ledger-50 text-ledger-900 font-body antialiased dark:bg-ledger-950 dark:text-ledger-100;
+  }
+  h1, h2, h3, h4, h5 {
+    @apply font-display;
+  }
+  ::selection {
+    @apply bg-gold-500/30;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-ledger-300 dark:bg-ledger-700 rounded-full;
+  }
+  .glass {
+    @apply bg-white/70 dark:bg-ledger-900/60 backdrop-blur-xl border border-ledger-100 dark:border-ledger-800;
+  }
+  .card {
+    @apply glass rounded-2xl shadow-soft;
+  }
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-ledger-950;
+  }
+}
+
+/* AG Grid theme customization to match ledger/gold palette */
+.ag-theme-quartz {
+  --ag-background-color: #ffffff;
+  --ag-header-background-color: #F5F7FD;
+  --ag-odd-row-background-color: #FAFBFF;
+  --ag-border-color: #E7ECF9;
+  --ag-header-foreground-color: #0B1220;
+  --ag-foreground-color: #152238;
+  --ag-selected-row-background-color: rgba(212,169,76,0.12);
+  --ag-range-selection-border-color: #D4A94C;
+  --ag-font-family: 'Inter', sans-serif;
+  --ag-font-size: 13px;
+  --ag-border-radius: 12px;
+  --ag-header-height: 40px;
+  --ag-row-height: 36px;
+}
+.ag-theme-quartz-dark {
+  --ag-background-color: #0B1220;
+  --ag-header-background-color: #101A2C;
+  --ag-odd-row-background-color: #0E1626;
+  --ag-border-color: #1E2F4B;
+  --ag-header-foreground-color: #E7ECF9;
+  --ag-foreground-color: #CBD6EE;
+  --ag-selected-row-background-color: rgba(212,169,76,0.15);
+  --ag-range-selection-border-color: #D4A94C;
+  --ag-font-family: 'Inter', sans-serif;
+  --ag-font-size: 13px;
+  --ag-border-radius: 12px;
+  --ag-header-height: 40px;
+  --ag-row-height: 36px;
+}
+.cell-locked {
+  background-color: rgba(148,163,184,0.15) !important;
+  color: #94A3B8 !important;
+  cursor: not-allowed !important;
+}
+.cell-editable {
+  box-shadow: inset 0 0 0 1px rgba(212,169,76,0.35);
+}
+.cell-admin-only {
+  background-image: repeating-linear-gradient(135deg, rgba(212,169,76,0.08), rgba(212,169,76,0.08) 4px, transparent 4px, transparent 8px);
+}
